@@ -357,7 +357,31 @@ class CornersProblem(search.SearchProblem):
             #   hitsWall = self.walls[nextx][nexty]
             # "*** YOUR CODE HERE ***"
             # if state is not in starting position
+            
+            # print state
+            # print '----'
+            # postition_state = state[0]
+            # self.corner_one = state[1][0]
+            # self.corner_two = state[1][1]
+            # self.corner_three = state[1][2]
+            # self.corner_four = state[1][3]
+
+            # if the agent has visited all the corners in the starting from the starting state
             if not (state == self.startingPosition):
+                # print state
+                ## ((1, 4), (False, False, True, False))
+                # print state[0]
+                # print state[1][0]
+                # print state[1][1]
+                # print state[1][2]
+                # print state[1][3]
+                # (1, 4)
+                # False
+                # False
+                # True
+                # False
+                # print '----'
+                ## current position
                 postition_state = state[0]
                 self.corner_one = state[1][0]
                 self.corner_two = state[1][1]
@@ -369,6 +393,7 @@ class CornersProblem(search.SearchProblem):
                 self.corner_two = False
                 self.corner_three = False
                 self.corner_four = False
+
 
             x,y = postition_state
             dx, dy = Actions.directionToVector(action)
@@ -441,6 +466,9 @@ def cornersHeuristic(state, problem):
     # print state[1][3]
     # print '---------'
     # heuristics are functions that take search states and return numbers that estimate the cost to a nearest goal
+    # if the state sent is not the starting position?
+    print (problem.startingPosition)
+    print ('---')
     if not (state == problem.startingPosition):
         postition_state = state[0]
         if (state[1][0] == False):
