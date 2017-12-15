@@ -367,6 +367,13 @@ class CornersProblem(search.SearchProblem):
             # self.corner_four = state[1][3]
 
             # if the agent has visited all the corners in the starting from the starting state
+            # else -- ?
+            postition_state = state
+            self.corner_one = False
+            self.corner_two = False
+            self.corner_three = False
+            self.corner_four = False
+            
             if not (state == self.startingPosition):
                 # print state
                 ## ((1, 4), (False, False, True, False))
@@ -387,12 +394,12 @@ class CornersProblem(search.SearchProblem):
                 self.corner_two = state[1][1]
                 self.corner_three = state[1][2]
                 self.corner_four = state[1][3]
-            else:
-                postition_state = state
-                self.corner_one = False
-                self.corner_two = False
-                self.corner_three = False
-                self.corner_four = False
+            # else:
+            #     postition_state = state
+            #     self.corner_one = False
+            #     self.corner_two = False
+            #     self.corner_three = False
+            #     self.corner_four = False
 
 
             x,y = postition_state
@@ -467,8 +474,8 @@ def cornersHeuristic(state, problem):
     # print '---------'
     # heuristics are functions that take search states and return numbers that estimate the cost to a nearest goal
     # if the state sent is not the starting position?
-    print (problem.startingPosition)
-    print ('---')
+    # print (problem.startingPosition)
+    # print ('---')
     if not (state == problem.startingPosition):
         postition_state = state[0]
         if (state[1][0] == False):
@@ -603,6 +610,7 @@ def foodHeuristic(state, problem):
     food = []
     distance = 0
 
+    # taking all the available food locations and appending it onto a list
     for i in range(0,foodGrid.width):
         for j in range(0,foodGrid.height):
             if (foodGrid[i][j] == True):
